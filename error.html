@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro</title>
+    <link rel="icon" href="https://backend.ploosh.dev/assets/logo.png">
+    <link rel="stylesheet" href="../registerweb/styles.css">
+</head>
+<style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to right, #5945d6, #211F2E);
+        font-family: 'Bricolage Grotesque', sans-serif;
+    }
+
+    .container {
+        text-align: center;
+        background: linear-gradient(to right, #2e19b6, #4b4285);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #fff; 
+    }
+
+    p {
+        color: #fff; 
+    }
+    a {
+        color: #0099ff; 
+    }
+</style>
+<body>
+    <div class="container">
+        <img src="https://backend.ploosh.dev/assets/logo.png" alt="Logo" style="width: 50px; height: 50px;">
+        <h1>Error</h1>
+        <p><%= error %></p>
+        <p> <br> </b></p> 
+        <p>If this is incorrect, please contact support in the guild below.</p>
+        <p> <br> </b></p> 
+        <a href="https://discord.gg/astrofn">discord.gg/astrofn</a>
+    </div>
+</body>
+</html>

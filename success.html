@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro</title>
+    <link rel="icon" href="https://backend.ploosh.dev/assets/logo.png">
+    <link rel="stylesheet" href="../registerweb/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #5945d6, #211F2E);
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: linear-gradient(to right, #2e19b6, #4b4285);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        }
+
+        .info-box {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            color: #fff;
+            background: linear-gradient(to bottom, #544d4d, #1d1c1d); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #fff; 
+        }
+
+        p {
+            color: #fff; 
+        }
+
+        .username-box {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            color: #fff;
+            background: linear-gradient(to bottom, #544d4d, #1d1c1d); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Successfully registered</h1>
+        <p>Welcome to Astro!</p>
+        <br></br>
+        <div class="username-box">
+            <p><strong>Username:</strong> <%= username %></p>
+        </div>
+        <div class="info-box">
+            <p><strong>Email:</strong> <%= email %></p>
+        </div>
+        <div class="info-box">
+            <p><strong>Password:</strong> <%= password %></p>
+        </div>
+    </div>
+</body>
+</html>

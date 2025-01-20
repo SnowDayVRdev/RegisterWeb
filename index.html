@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro</title>
+    <link rel="icon" href="https://backend.ploosh.dev/assets/logo.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta content="Astro | Register Website" property="og:title" />
+    <meta content="Create an account for discord.gg/astrofn using this website!" property="og:description" />
+    <meta content="#9837F9" data-react-helmet="true" name="theme-color" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #5945d6, #211F2E);
+            font-family: 'Bricolage Grotesque', sans-serif;
+            overflow: hidden;
+            position: relative; /* Ensure circles are positioned relative to the body */
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+            background: linear-gradient(to right, #2e19b6, #4b4285);
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #fff; 
+        }
+
+        .container a {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 15px 80px; 
+            border-radius: 10px;
+            text-align: left;
+            color: #fff;
+            background: #5865f2;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+        }
+
+        .container a:hover {
+            background: #7289da;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        img.logo {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        img.discord-logo {
+            height: 23px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        .circle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(150, 150, 150, 0.5);
+            border-radius: 50%;
+            animation: moveCircle 10s linear infinite;
+        }
+
+        @keyframes moveCircle {
+            0% {
+                top: 100%;
+                left: var(--random-x);
+            }
+            100% {
+                top: -40px;
+                left: var(--random-x); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="https://backend.ploosh.dev/assets/logo.png" alt="Logo">
+        <h1>Login with Discord <img class="discord-logo" src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6cc3c481a15a141738_icon_clyde_white_RGB.png" alt="Discordlogo"></h1>
+        <a href="<%= authorizeUrl %>">Authorize With Discord</a>
+    </div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const numCircles = 5;
+
+    for (let i = 0; i < numCircles; i++) {
+        const circle = createCircle();
+        document.body.appendChild(circle);
+    }
+
+    function createCircle() {
+        const circle = document.createElement('div');
+        circle.classList.add('circle');
+
+        const containerWidth = window.innerWidth;
+        const containerHeight = window.innerHeight;
+
+        let x, y;
+        do {
+            x = getRandomInt(0, containerWidth);
+            y = getRandomInt(0, containerHeight);
+        } while (checkOverlap(x, y));
+
+        circle.style.setProperty('--random-x', `${x}px`);
+        circle.style.setProperty('--random-y', `${y}px`);
+        circle.style.animationDuration = `${getRandomInt(10, 20)}s`;
+        return circle;
+    }
+
+
+
+            function checkOverlap(x, y) {
+                const circles = document.querySelectorAll('.circle');
+                for (let circle of circles) {
+                    const rect = circle.getBoundingClientRect();
+                    if (Math.sqrt((x - (rect.left + rect.width / 4)) ** 4 + (y - (rect.top + rect.height / 2)) ** 2) < 80) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 4)) + min;
+            }
+        });
+    </script>
+</body>
+</html>
